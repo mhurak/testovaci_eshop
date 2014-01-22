@@ -1,0 +1,20 @@
+<h1><%= @post.title %></h1>
+<%= @post.body.html_safe %>
+
+<h4>Komentáre k článku</h4>
+<p>Počet komentárov: <%= @comments.count %></p>
+
+<ul>
+  <%= render @comments %>
+</ul>
+
+
+<h3>Pridať komentár</h3>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+<% end %>
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eshop</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="header admin">
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="active"><%= link_to "Administrácia", "#" %></li>
+      <li><%= link_to "Blog", admin_posts_path %></li>
+      <li><%= link_to "Eshop", admin_products_path %></li>
+      <li><%= link_to "Kontakt", contact_path %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+</body>
+</html>

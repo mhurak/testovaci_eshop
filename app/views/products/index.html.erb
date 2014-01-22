@@ -1,0 +1,7 @@
+<h1>Produkty</h1>
+
+<% @products.each do |product| %>
+  <h3><%= link_to product.name, product_path(product) %></h3>
+
+  <p><%= product.description.html_safe %></p>
+<% end %>
