@@ -11,10 +11,10 @@
 <div class="header admin">
   <div class="container">
     <ul class="nav nav-pills">
-      <li class="active"><%= link_to "Administrácia", "#" %></li>
+      <li class="active"><%= link_to "Domov", posts_path %></li>
       <li><%= link_to "Blog", admin_posts_path %></li>
       <li><%= link_to "Eshop", admin_products_path %></li>
-      <li><%= link_to "Kontakt", contact_path %></li>
+      <li class="pull-right"><%= link_to "Odhlásiť sa", admin_session_path(1), method: "delete" %></li>
     </ul>
   </div>
 </div>

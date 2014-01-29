@@ -1,5 +1,6 @@
 class Admin::PostsController < ApplicationController
   layout "admin"
+  before_action :require_admin_session
 
   def index
     @posts = Post.all
@@ -10,7 +11,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new params[:post].permit(:title, :body, :published)
+    @post = Post.new params[:post].permit(:title, :body, :published, :category_id)
 
     if @post.save
       redirect_to admin_posts_url
@@ -26,10 +27,16 @@ class Admin::PostsController < ApplicationController
   def update
     @post = Post.find params[:id]
 
-    if @post.update params[:post].permit(:title, :body, :published)
+    if @post.update params[:post].permit(:title, :body, :published, :category_id)
       redirect_to admin_posts_url
     else
       render :edit
     end
+  end
+
+  def destroy
+    @post = Post.find params[:id]
+    @post.destroy
+      redirect_to admin_posts_url  
   end
 end

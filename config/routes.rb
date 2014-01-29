@@ -1,14 +1,15 @@
 Eshop::Application.routes.draw do
 
   resources :categories, only: :show
-  resources :posts, only: [:index, :show] do
+  resources :posts, only: [:index, :show, :destroy] do
       resources :comments
   end
   
   resources :products, only: [:index, :show]
+  resources :admin_sessions
 
   namespace :admin do
-    resources :posts, except: [:show, :destroy]
+    resources :posts, except: [:show]
     resources :products, except: [:show, :destroy]
   end
 
