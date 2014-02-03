@@ -10,6 +10,8 @@
   Category.where(name: name).first_or_create!
 end
 
-AdminUser = AdminUser.where(email: 'mhurak@gmail.com').first_or_initialize
-user.password = 'heslo'
-user.save!
+AdminUser = AdminUser.new
+AdminUser.email = "mhurak@gmail.com"
+AdminUser.password = "heslo"
+AdminUser.password_confirmation = "heslo"
+AdminUser.save
