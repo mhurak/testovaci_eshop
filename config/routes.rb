@@ -7,6 +7,7 @@ Eshop::Application.routes.draw do
   
   resources :products, only: [:index, :show]
   resources :admin_sessions
+  resources :cart_items, only: [:index, :create, :destroy]
 
   namespace :admin do
     resources :posts, except: [:show]

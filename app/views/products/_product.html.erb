@@ -1,0 +1,8 @@
+<div class="well">
+  <h4><%= product.name %></h4>
+  <p>
+    <%= number_to_currency product.price, unit:'€', format: '%n %u', separator: ',' %>
+  </p>
+
+  <%= button_to 'Pridať do košíka', cart_items_path(product_id: product.id), class: "btn-primary btn-xs" %>
+</div>
